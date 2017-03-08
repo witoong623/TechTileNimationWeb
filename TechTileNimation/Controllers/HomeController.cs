@@ -3,33 +3,69 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechTileNimation.ViewModels;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace TechTileNimation.Controllers
 {
     public class HomeController : Controller
     {
+        public IHostingEnvironment _env;
+
+        public HomeController(IHostingEnvironment env)
+        {
+            _env = env;
+        }
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        [HttpGet]
+        public IActionResult Upload()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        public IActionResult Contact()
+        [ActionName("upload")]
+        [HttpPost]
+        public async Task<IActionResult> UploadConfirm(UploadViewModel viewModel)
         {
-            ViewData["Message"] = "Your contact page.";
+            if (ModelState.IsValid)
+            {
+                string rootpath = _env.WebRootPath;
+                string sensationSoundPath = Path.Combine("sensation_sound", viewModel.SensationSoundFile.FileName);
+                string previewImagePath = Path.Combine("image_preview", viewModel.ImagePreviewFile.FileName);
+                string animationPath = null;
 
-            return View();
-        }
+                if (viewModel.AnimationFile != null)
+                {
+                    animationPath = Path.Combine("animation", viewModel.AnimationFile.FileName);
+                }
 
-        public IActionResult Error()
-        {
-            return View();
+                using (var saveSound = new FileStream(Path.Combine(rootpath, sensationSoundPath), FileMode.Create, FileAccess.Write))
+                {
+                    await viewModel.SensationSoundFile.CopyToAsync(saveSound);
+                }
+
+                using (var savePreviewImage = new FileStream(Path.Combine(rootpath, previewImagePath), FileMode.Create, FileAccess.Write))
+                {
+                    await viewModel.ImagePreviewFile.CopyToAsync(savePreviewImage);
+                }
+
+                if (animationPath != null)
+                {
+                    using (var saveAnimation = new FileStream(Path.Combine(rootpath, animationPath), FileMode.Create, FileAccess.Write))
+                    {
+                        await viewModel.ImagePreviewFile.CopyToAsync(saveAnimation);
+                    }
+                }
+
+                return RedirectToAction(nameof(HomeController.Index));
+            }
+
+            return RedirectToAction(nameof(HomeController.Upload));
         }
     }
 }
