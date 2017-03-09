@@ -1,26 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TechTileNimation.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using TechTileNimation.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TechTileNimation.Controllers
 {
     public class HomeController : Controller
     {
         public IHostingEnvironment _env;
+        public AppDbContext _context;
 
-        public HomeController(IHostingEnvironment env)
+        public HomeController(IHostingEnvironment env, AppDbContext context)
         {
             _env = env;
+            _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var entries = await _context.SensationEntry.ToListAsync();
+            var viewModel = new List<ShowcaseEntryViewModel>();
+            
+            foreach (var entry in entries)
+            {
+                var div_css = $@"#{entry.Name}-img {{ background-image: url({entry.PreviewImageLink}); }}";
+                var button_css = $@"#{entry.Name}-image-button {{ position: absolute; }}";
+
+                viewModel.Add(new ShowcaseEntryViewModel
+                {
+                    Entry = entry,
+                    DivCss = div_css,
+                    ButtonCss = button_css
+                });
+            }
+
+            return View(viewModel);
         }
 
         [HttpGet]
