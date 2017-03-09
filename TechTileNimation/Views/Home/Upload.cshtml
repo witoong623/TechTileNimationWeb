@@ -1,5 +1,5 @@
-﻿@using TechTileNimation.Models
-@model SensationEntry
+﻿@using TechTileNimation.ViewModels
+@model UploadViewModel
 @{
     ViewData["Title"] = "Upload";
 }
@@ -14,22 +14,22 @@
         <div class="container">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <form enctype="multipart/form-data">
+                <form enctype="multipart/form-data" asp-action="upload" method="post">
                     <div class="form-group">
                         <label>Name : </label>
                         <input asp-for="Name" type="text">
                     </div>
                     <div class="form-group">
                         <label>Sound </label>
-                        <input type="file">
+                        <input asp-for="SensationSoundFile" type="file">
                     </div>
                     <div class="form-group">
                         <label>Picture </label>
-                        <input type="file" accept="image/*">
+                        <input type="file" asp-for="ImagePreviewFile">
                     </div>
                     <div class="form-group">
-                        <label>Animation </label>
-                        <input type="file">
+                        <label>Animation</label>
+                        <input asp-for="AnimationFile" type="file">
                     </div>
                     <div class="form-group">
                         <center><input type="submit" value="Upload"></center>
@@ -38,9 +38,6 @@
             </div>
             <div class="col-md-4"></div>
         </div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
 
