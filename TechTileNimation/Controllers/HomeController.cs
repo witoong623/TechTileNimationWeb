@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -47,11 +48,13 @@ namespace TechTileNimation.Controllers
                 using (var saveSound = new FileStream(Path.Combine(rootpath, sensationSoundPath), FileMode.Create, FileAccess.Write))
                 {
                     await viewModel.SensationSoundFile.CopyToAsync(saveSound);
+                    Debug.WriteLine("Uploaded sound");
                 }
 
                 using (var savePreviewImage = new FileStream(Path.Combine(rootpath, previewImagePath), FileMode.Create, FileAccess.Write))
                 {
                     await viewModel.ImagePreviewFile.CopyToAsync(savePreviewImage);
+                    Debug.WriteLine("Uploaded image");
                 }
 
                 if (animationPath != null)
@@ -59,6 +62,7 @@ namespace TechTileNimation.Controllers
                     using (var saveAnimation = new FileStream(Path.Combine(rootpath, animationPath), FileMode.Create, FileAccess.Write))
                     {
                         await viewModel.ImagePreviewFile.CopyToAsync(saveAnimation);
+                        Debug.WriteLine("Uploaded animation");
                     }
                 }
 

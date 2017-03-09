@@ -31,7 +31,7 @@ namespace TechTileNimation
         {
             // Add framework services.
             services.AddMvc();
-            services.AddDbContext<AppDbContext>(option => option.UseSqlite(""));
+            services.AddDbContext<AppDbContext>(option => option.UseSqlite("showcase.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

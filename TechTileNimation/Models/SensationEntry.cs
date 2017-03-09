@@ -7,6 +7,7 @@ namespace TechTileNimation.Models
 {
     public class SensationEntry
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string PreviewImageLink { get; set; }
         public string SensationSoundLink { get; set; }
