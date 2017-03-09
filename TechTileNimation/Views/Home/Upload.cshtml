@@ -1,3 +1,44 @@
 ﻿@{
     ViewData["Title"] = "Upload";
 }
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form</title>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Name : </label>
+                        <input type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Sound </label>
+                        <input type="file">
+                    </div>
+                    <div class="form-group">
+                        <label>Picture </label>
+                        <input type="file" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label>Animation </label>
+                        <input type="file">
+                    </div>
+                    <div class="form-group">
+                        <center><input type="submit" value="Upload"></center>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
