@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using TechTileNimation.Models;
 
 namespace TechTileNimation
 {
@@ -29,6 +31,7 @@ namespace TechTileNimation
         {
             // Add framework services.
             services.AddMvc();
+            services.AddDbContext<AppDbContext>(option => option.UseSqlite(""));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
