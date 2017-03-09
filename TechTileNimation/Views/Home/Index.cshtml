@@ -13,11 +13,26 @@
         .container {
             background-color: white;
         }
-
-        #head-img {
+        .entry-div {
             height: 600px;
-            background-image: url("/images/techtile2.jpg");
             background-position: center center;
+        }
+        .entry-button {
+            border-bottom: 1px solid #FFF;
+            border-radius: 50PX;
+            background: transparent;
+            box-shadow: inset 0 0 10px #888888;
+            height: 100px;
+            width: 200px;
+            position: absolute;
+            top: 400px;
+            left: 480px;
+            COLOR: WHITE;
+            font-size: 36px;
+        }
+
+        #head-img {            
+            background-image: url("/images/techtile.jpg");            
             background-size: 1170px 600px;
             position: relative;
         }
@@ -39,46 +54,22 @@
             color: white;
         }
 
-        #rain-img {
-            height: 600px;
+        #rain-img {            
             background-image: url("/images/rain.png");
             position: relative;
         }
 
         #rain-img-button {
-            position: absolute;
-            border-bottom: 1px solid #FFF;
-            border-radius: 50PX;
-            background: transparent;
-            box-shadow: inset 0 0 10px #888888;
-            height: 100px;
-            width: 200px;
-            position: absolute;
-            top: 400px;
-            left: 480px;
-            COLOR: WHITE;
-            font-size: 36px;
+            position: absolute;            
         }
 
-        #train-img {
-            height: 600px;
+        #train-img {            
             background-image: url("/images/train.png");
             position: relative;
         }
 
         #train-img-button {
-            position: absolute;
-            border-bottom: 1px solid #FFF;
-            border-radius: 50PX;
-            background: transparent;
-            box-shadow: inset 0 0 10px #888888;
-            height: 100px;
-            width: 200px;
-            position: absolute;
-            top: 400px;
-            left: 480px;
-            COLOR: WHITE;
-            font-size: 36px;
+            position: absolute;            
         }
 
         .button {
@@ -110,31 +101,17 @@
                     right: 0;
                 }
 
-        #coin-img {
-            height: 600px;
+        #coin-img {            
             background-image: url("/images/coin.png");
             position: relative;
         }
 
         #coin-img-button {
             position: absolute;
-            border-bottom: 1px solid #FFF;
-            border-radius: 50PX;
-            background: transparent;
-            box-shadow: inset 0 0 10px #888888;
-            height: 100px;
-            width: 200px;
-            position: absolute;
-            top: 400px;
-            left: 480px;
-            COLOR: WHITE;
-            font-size: 36px;
         }
 
-        #helicopter-img {
-            height: 600px;
-            background-image: url("/images/helicopter.png");
-            background-position: center;
+        #helicopter-img {            
+            background-image: url("/images/helicopter.png");            
             position: relative;
         }
 
@@ -153,48 +130,22 @@
             font-size: 36px;
         }
 
-        #walk-img {
-            height: 600px;
-            background-image: url("/images/walk.png");
-            background-position: center;
+        #walk-img {            
+            background-image: url("/images/walk.png");            
             position: relative;
         }
 
         #walk-img-button {
             position: absolute;
-            border-bottom: 1px solid #FFF;
-            border-radius: 50PX;
-            background: transparent;
-            box-shadow: inset 0 0 10px #888888;
-            height: 100px;
-            width: 200px;
-            position: absolute;
-            top: 400px;
-            left: 480px;
-            COLOR: WHITE;
-            font-size: 36px;
         }
 
-        #bubble-img {
-            height: 600px;
-            background-image: url("/images/helicopter.png");
-            background-position: center;
+        #bubble-img {            
+            background-image: url("/images/helicopter.png");            
             position: relative;
         }
 
         #bubble-img-button {
             position: absolute;
-            border-bottom: 1px solid #FFF;
-            border-radius: 50PX;
-            background: transparent;
-            box-shadow: inset 0 0 10px #888888;
-            height: 100px;
-            width: 200px;
-            position: absolute;
-            top: 400px;
-            left: 480px;
-            COLOR: WHITE;
-            font-size: 36px;
         }
     </style>
 </head>
@@ -204,44 +155,44 @@
     <body style="background-color: #c4c4c4">
         <div class="container">
             <div class="row">
-                <div class="col-md-12" id="head-img">
+                <div class="col-md-12 entry-div" id="head-img">
                     <button type="button" id="upload-button" class="button"><span>UPLOAD</span></button>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12" id="rain-img">
-                    <button type="button" id="rain-img-button" class="btn btn-default button"><span>RAIN</span></button>
+                <div class="col-md-12 entry-div" id="rain-img">
+                    <button type="button" id="rain-img-button" class="btn btn-default button entry-button"><span>RAIN</span></button>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12" id="train-img">
-                    <button type="button" id="train-img-button" class="btn btn-default  button"><span>TRAIN</span></button>
+                <div class="col-md-12 entry-div" id="train-img">
+                    <button type="button" id="train-img-button" class="btn btn-default  button entry-button"><span>TRAIN</span></button>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12" id="coin-img">
-                    <button type="button" id="coin-img-button" class="btn btn-default button"><span>COIN</span></button>
+                <div class="col-md-12 entry-div" id="coin-img">
+                    <button type="button" id="coin-img-button" class="btn btn-default button entry-button"><span>COIN</span></button>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12" id="helicopter-img">
-                    <button type="button" id="helicopter-img-button" class="btn btn-default button"><span>HELICOPTER</span></button>
+                <div class="col-md-12 entry-div" id="helicopter-img">
+                    <button type="button" id="helicopter-img-button" class="btn btn-default button entry-button"><span>HELICOPTER</span></button>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12" id="walk-img">
-                    <button type="button" id="walk-img-button" class="btn btn-default button"><span>WALK</span></button>
+                <div class="col-md-12 entry-div" id="walk-img">
+                    <button type="button" id="walk-img-button" class="btn btn-default button entry-button"><span>WALK</span></button>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12" id="bubble-img">
-                    <button type="button" id="bubble-img-button" class="btn btn-default button"><span>BUBBLE</span></button>
+                <div class="col-md-12 entry-div" id="bubble-img">
+                    <button type="button" id="bubble-img-button" class="btn btn-default button entry-button"><span>BUBBLE</span></button>
                 </div>
             </div>
         </div>
