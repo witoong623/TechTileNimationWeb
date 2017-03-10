@@ -23,23 +23,8 @@ namespace TechTileNimation.Controllers
         public async Task<IActionResult> Index()
         {
             var entries = await _context.SensationEntry.ToListAsync();
-            var viewModel = new List<ShowcaseEntryViewModel>();
 
-            foreach (var entry in entries)
-            {
-                var div_css = $@"#{entry.Name}-img {{ background-image: url({entry.PreviewImageLink}); }}";
-                var button_css = $@"#{entry.Name}-image-button {{ position: absolute; }}";
-
-                viewModel.Add(new ShowcaseEntryViewModel
-                {
-                    Entry = entry,
-                    DivCss = div_css,
-                    ButtonCss = button_css
-                });
-            }
-
-            return View(viewModel);
-            //return View();
+            return View(entries);
         }
 
         [HttpGet]
@@ -69,13 +54,11 @@ namespace TechTileNimation.Controllers
                 using (var saveSound = new FileStream(sensationSoundPath, FileMode.Create, FileAccess.Write))
                 {
                     await viewModel.SensationSoundFile.CopyToAsync(saveSound);
-                    Debug.WriteLine("Uploaded sound");
                 }
 
                 using (var savePreviewImage = new FileStream(previewImagePath, FileMode.Create, FileAccess.Write))
                 {
                     await viewModel.ImagePreviewFile.CopyToAsync(savePreviewImage);
-                    Debug.WriteLine("Uploaded image");
                 }
 
                 if (animationPath != null)
@@ -83,7 +66,6 @@ namespace TechTileNimation.Controllers
                     using (var saveAnimation = new FileStream(animationPath, FileMode.Create, FileAccess.Write))
                     {
                         await viewModel.ImagePreviewFile.CopyToAsync(saveAnimation);
-                        Debug.WriteLine("Uploaded animation");
                     }
                 }
 
