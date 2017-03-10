@@ -1,0 +1,53 @@
+<html>
+<head>
+<style>
+#wrapper {
+  width:20%;
+}
+
+#walker {
+  /* top padding = (h / w) * 100 */
+  /* (height & width of one frame) */
+  padding-top:143.7%;
+  display:block;
+  background: url('http://eighthdaydesign.com/assets/img/walk.svg');
+  background-size:cover;
+}
+
+/* demo stylin' */
+body {
+  background:#abffce;
+}
+#wrapper {
+  max-width:200px;
+  min-width:130px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+<div id="walker"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+<script>
+/* Dependencies TweenMax */
+
+var totalFrames = 22;
+var speed = 1.03;
+  
+var walkEase = new SteppedEase(totalFrames)
+var finalPosition = '100% 0px';
+
+var walkTL = new TimelineMax()
+walkTL.to('#walker', speed, {
+    backgroundPosition: finalPosition,
+    ease: walkEase,
+    repeat: -1
+})
+
+</script>
+</body>
