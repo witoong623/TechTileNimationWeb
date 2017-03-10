@@ -145,7 +145,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Rain</h4>
+                    <h4 class="modal-title" id="myModalLabel">RAIN</h4>
                 </div>
                 <div class="modal-body"><!-- start modal body -->
                     <center>
@@ -167,7 +167,7 @@
     <div class="row">
         <div class="col-md-12 entry-div" id="train-img">
             <img src="~/images/train.png" class="img-responsive">
-            <button type="button" id="train-img-button" class="button entry-button"  data-toggle="modal" data-target="#train"><span>TRAIN</span></button>
+            <button type="button" id="train-img-button" class="button entry-button" data-toggle="modal" data-target="#train"><span>TRAIN</span></button>
         </div>
     </div>
     <!-- Modal -->
@@ -176,7 +176,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Rain</h4>
+                    <h4 class="modal-title" id="myModalLabel">TRAIN</h4>
                 </div>
                 <div class="modal-body">
                     <!-- start modal body -->
@@ -195,33 +195,133 @@
     </div><!--End Modal -->
     <!-- end train-->
 
+    <!-- start coin-->
     <div class="row">
         <div class="col-md-12 entry-div" id="coin-img">
             <img src="~/images/coin.png" class="img-responsive">
-            <button type="button" id="coin-img-button" class="button entry-button"><span>COIN</span></button>
+            <button type="button" id="coin-img-button" class="button entry-button" data-toggle="modal" data-target="#coin"><span>COIN</span></button>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="coin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">COIN</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- start modal body -->
+                    <center>
+                        <iframe src="~/htmlAnimation/coin.html" class="size-animation"></iframe>
+                    </center>
+                    <audio id="#coin-audio">
+                        <source src="~/audios/coin.mp3" type="audio/mp3" />
+                    </audio>
+                </div><!-- end modal body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div><!--End Modal -->
+    <!-- end coin-->
 
+    <!-- start helicopter-->
     <div class="row">
         <div class="col-md-12 entry-div" id="helicopter-img">
             <img src="~/images/helicopter.png" class="img-responsive">
-            <button type="button" id="helicopter-img-button" class="button entry-button" style="height: 100px; width: 280px; bottom: 100px; left: 460px;"><span>HELICOPTER</span></button>
+            <button type="button" id="helicopter-img-button" class="button entry-button" style="height: 100px; width: 280px; bottom: 100px; left: 460px;"  data-toggle="modal" data-target="#helicopter"><span>HELICOPTER</span></button>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="helicopter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">HELICOPTER</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- start modal body -->
+                    <center>
+                        <iframe src="~/htmlAnimation/helicopter.html" class="size-animation"></iframe>
+                    </center>
+                    <audio id="#helicopter-audio">
+                        <source src="~/audios/helicopter.mp3" type="audio/mp3" />
+                    </audio>
+                </div><!-- end modal body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div><!--End Modal -->
+    <!-- end helicopter-->
 
+    <!-- start walk-->
     <div class="row">
         <div class="col-md-12 entry-div" id="walk-img">
             <img src="~/images/walk.png" class="img-responsive">
-            <button type="button" id="walk-img-button" class="button entry-button"><span>WALK</span></button>
+            <button type="button" id="walk-img-button" class="button entry-button" data-toggle="modal" data-target="#walk"><span>WALK</span></button>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="walk" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">WALK</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- start modal body -->
+                    <center>
+                        <iframe src="~/htmlAnimation/walk.html" class="size-animation"></iframe>
+                    </center>
+                    <audio id="#walk-audio">
+                        <source src="~/audios/walk.mp3" type="audio/mp3" />
+                    </audio>
+                </div><!-- end modal body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div><!--End Modal -->
+    <!-- end walk-->
 
+    <!-- start bubble-->
     <div class="row">
         <div class="col-md-12 entry-div" id="bubble-img">
-            <img src="~/images/rain.png" class="img-responsive">
-            <button type="button" id="bubble-img-button" class="button entry-button"><span>BUBBLE</span></button>
+            <img src="~/images/bubble.jpg" class="img-responsive">
+            <button type="button" id="bubble-img-button" class="button entry-button" data-toggle="modal" data-target="#bubble"><span>BUBBLE</span></button>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="bubble" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">BUBBLE</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- start modal body -->
+                    <center>
+                        <iframe src="~/htmlAnimation/bobble.html" class="size-animation"></iframe>
+                    </center>
+                    <audio id="#walk-audio">
+                        <source src="~/audios/bubble.mp3" type="audio/mp3" />
+                    </audio>
+                </div><!-- end modal body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div><!--End Modal -->
+    <!-- end bubble-->
 
     @foreach (var entry in Model)
             {

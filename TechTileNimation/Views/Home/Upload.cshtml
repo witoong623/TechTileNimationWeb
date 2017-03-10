@@ -10,8 +10,7 @@
         <title>Form</title>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <style>
-            body {
-                /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);*/
+            body {                
                 background-color: #dfe9f3;
             }
             div#first {
@@ -24,6 +23,39 @@
                 border: 2px solid #C2D6FF;
                 border-radius: 40px 0 40px 0
             }
+            div#second{
+                margin-top:50px;
+                font-size:20px;
+                color:Highlight;
+            }
+            .button {
+                transition: all 0.5s;
+            }
+
+                .button span {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    transition: 0.5s;
+                }
+
+                    .button span:after {
+                        content: '\00bb';
+                        position: absolute;
+                        opacity: 0;
+                        top: 0;
+                        right: -20px;
+                        transition: 0.5s;
+                    }
+
+                .button:hover span {
+                    padding-right: 25px;
+                }
+
+                    .button:hover span:after {
+                        opacity: 1;
+                        right: 0;
+                    }
         </style>
     </head>
     <body>
@@ -49,8 +81,13 @@
                 <div class="form-group">
                     <center><input type="submit" value="Upload"></center>
                 </div>
-            </form>
-        </div>         
+            </form>            
+        </div>  
+        <div class="container" id="second">
+            <center>
+                <a asp-action="index" class="button"><span>BACK</span></a>
+            </center>
+        </div>
     </body>
 </html>
 
