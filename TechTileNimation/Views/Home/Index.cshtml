@@ -119,6 +119,10 @@
     #bubble-img-button {
         position: absolute;
     }
+    .size-animation{
+        width: 800px;
+        height: 480px; 
+    }
 </style>
 }
 <div class="container">
@@ -136,19 +140,21 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="rain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade bs-example-modal-lg" id="rain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Rain</h4>
                 </div>
-                <div class="modal-body">
-                    <iframe src="~/htmlAnimation/rain.html" style="width:800px; height:480px;"></iframe>
-                    <audio id="#rain-audio">
+                <div class="modal-body"><!-- start modal body -->
+                    <center>
+                        <iframe src="~/htmlAnimation/rain.html" class="size-animation"></iframe>
+                    </center>
+                    <audio id="#rain-audio" data-toggle="modal" data-target="#rain">
                         <source src="~/audios/rain.mp3" type="audio/mp3" />
                     </audio>
-                </div>
+                </div><!-- end modal body -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -156,24 +162,31 @@
         </div>
     </div><!--End Modal -->
     <!-- End rain -->
+
     <!-- start train-->
     <div class="row">
         <div class="col-md-12 entry-div" id="train-img">
             <img src="~/images/train.png" class="img-responsive">
-            <button type="button" id="train-img-button" class="button entry-button"><span>TRAIN</span></button>
+            <button type="button" id="train-img-button" class="button entry-button"  data-toggle="modal" data-target="#train"><span>TRAIN</span></button>
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="rain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade bs-example-modal-lg" id="train" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Rain</h4>
                 </div>
                 <div class="modal-body">
-                    <iframe src="~/htmlAnimation/rain.html"></iframe>
-                </div>
+                    <!-- start modal body -->
+                    <center>
+                        <iframe src="~/htmlAnimation/train.html" class="size-animation"></iframe>
+                    </center>
+                    <audio id="#train-audio">
+                        <source src="~/audios/trains.wav" type="audio/mp3" />
+                    </audio>
+                </div><!-- end modal body -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
