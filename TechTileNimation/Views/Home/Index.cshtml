@@ -12,7 +12,7 @@
         body {
             margin: 0 0 0 0;
             background-image: #fdfcfb;            
-        } 
+        }         
         #head-img {           
             position: relative;
         }
@@ -25,15 +25,14 @@
             color: white;
         }
 
-        .entry-div {
-            height: 600px;
+        .entry-div {            
             background-position: center center;
             -webkit-filter: grayscale(50%);
             filter: grayscale(50%);
         }
 
         .entry-button {
-            top: 400px;
+            bottom: 100px;
             left: 480px;
             height: 100px;
             width: 200px;
@@ -42,7 +41,7 @@
             background: transparent;
             box-shadow: inset 0 0 10px #888888;
             border-bottom: 1px solid #FFF;
-            border-radius: 50PX;
+            border-radius: 50px;
         }
 
         .button {
@@ -134,13 +133,40 @@
                     <a asp-action="upload" id="upload-button" class="button"><span>UPLOAD</span></a>
                 </div>
             </div>
-            
+            <!-- Start rain -->
             <div class="row">
                 <div class="col-md-12 entry-div" id="rain-img">
                     <img src="~/images/rain.png" class="img-responsive">
                     <button type="button" id="rain-img-button" class="button entry-button" data-toggle="modal" data-target="#rain"><span>RAIN</span></button>
                 </div>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="rain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Rain</h4>
+                        </div>
+                        <div class="modal-body">
+                            <iframe src="~/htmlAnimation/rain.html" style="width:800px; height:480px;"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                            
+                        </div>
+                    </div>
+                </div>
+            </div><!--End Modal -->
+            <!-- End rain -->
+            
+            <!-- start train-->
+            <div class="row">
+                <div class="col-md-12 entry-div" id="train-img">
+                    <img src="~/images/train.png" class="img-responsive">
+                    <button type="button" id="train-img-button" class="button entry-button"><span>TRAIN</span></button>
+                </div>
+            </div>
+            <!-- Modal -->
             <div class="modal fade" id="rain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -149,22 +175,15 @@
                             <h4 class="modal-title" id="myModalLabel">Rain</h4>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <iframe src="~/htmlAnimation/rain.html"></iframe>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                            
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-12 entry-div" id="train-img">
-                    <img src="~/images/train.png" class="img-responsive">
-                    <button type="button" id="train-img-button" class="button entry-button"><span>TRAIN</span></button>
-                </div>
-            </div>
+            </div><!--End Modal -->
+            <!-- end train-->
             
             <div class="row">
                 <div class="col-md-12 entry-div" id="coin-img">
@@ -176,7 +195,7 @@
             <div class="row">
                 <div class="col-md-12 entry-div" id="helicopter-img">
                     <img src="~/images/helicopter.png" class="img-responsive">
-                    <button type="button" id="helicopter-img-button" class="button entry-button" style="height: 100px; width: 280px; top: 400px; left: 460px;"><span>HELICOPTER</span></button>
+                    <button type="button" id="helicopter-img-button" class="button entry-button" style="height: 100px; width: 280px; bottom: 100px; left: 460px;"><span>HELICOPTER</span></button>
                 </div>
             </div>
             
