@@ -8,25 +8,15 @@
     <title>Sound</title>
     <style>
         body {
-            margin-top: 0px;            
-        }        
-        #head-img {
-            background-image: url("images/techtile.jpg");
-            background-size: 1170px 600px;
+            margin: 0 0 0 0;
+            background-image: #fdfcfb;            
+        } 
+        #head-img {           
             position: relative;
         }
-
         #upload-button {
             display: block;
             position: absolute;
-            border-bottom: 1px solid #FFF;
-            border-radius: 25px;
-            background: transparent;
-            box-shadow: inset 0 0 10px #888888;
-            -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
-            height: 40px;
-            width: 150px;
-            margin: 0px auto 30px auto;
             right: 50px;
             top: 12px;
             font-size: 24px;
@@ -82,8 +72,7 @@
                     right: 0;
                 }
 
-        #rain-img {
-            background-image: url("images/rain.png");
+        #rain-img {            
             position: relative;
         }
 
@@ -92,7 +81,6 @@
         }
 
         #train-img {
-            background-image: url("images/train.png");
             position: relative;
         }
 
@@ -101,7 +89,6 @@
         }
 
         #coin-img {
-            background-image: url("images/coin.png");
             position: relative;
         }
 
@@ -110,7 +97,6 @@
         }
 
         #helicopter-img {
-            background-image: url("images/helicopter.png");
             position: relative;
         }
 
@@ -119,7 +105,6 @@
         }
 
         #walk-img {
-            background-image: url("images/walk.png");
             position: relative;
         }
 
@@ -128,7 +113,6 @@
         }
 
         #bubble-img {
-            background-image: url("images/helicopter.png");
             position: relative;
         }
 
@@ -140,46 +124,70 @@
 
 
 
-    <body style="background-color: #c4c4c4">
+    <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 entry-div" id="head-img">
-                    <button type="button" id="upload-button" class="button"><span>UPLOAD</span></button>
+                    <img src="~/images/techtile.jpg" class="img-responsive">
+                    <a asp-action="upload" id="upload-button" class="button"><span>UPLOAD</span></a>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-12 entry-div" id="rain-img">
-                    <button type="button" id="rain-img-button" class="button entry-button"><span>RAIN</span></button>
+                    <img src="~/images/rain.png" class="img-responsive">
+                    <button type="button" id="rain-img-button" class="button entry-button" data-toggle="modal" data-target="#rain"><span>RAIN</span></button>
+                </div>
+            </div>
+            <div class="modal fade" id="rain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Rain</h4>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-12 entry-div" id="train-img">
+                    <img src="~/images/train.png" class="img-responsive">
                     <button type="button" id="train-img-button" class="button entry-button"><span>TRAIN</span></button>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-12 entry-div" id="coin-img">
+                    <img src="~/images/coin.png" class="img-responsive">
                     <button type="button" id="coin-img-button" class="button entry-button"><span>COIN</span></button>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-12 entry-div" id="helicopter-img">
+                    <img src="~/images/helicopter.png" class="img-responsive">
                     <button type="button" id="helicopter-img-button" class="button entry-button" style="height: 100px; width: 280px; top: 400px; left: 460px;"><span>HELICOPTER</span></button>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-12 entry-div" id="walk-img">
+                    <img src="~/images/walk.png" class="img-responsive">
                     <button type="button" id="walk-img-button" class="button entry-button"><span>WALK</span></button>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-12 entry-div" id="bubble-img">
+                    <img src="~/images/rain.png" class="img-responsive">
                     <button type="button" id="bubble-img-button" class="button entry-button"><span>BUBBLE</span></button>
                 </div>
             </div>
