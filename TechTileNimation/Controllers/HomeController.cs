@@ -55,22 +55,24 @@ namespace TechTileNimation.Controllers
             if (ModelState.IsValid)
             {
                 string rootpath = _env.WebRootPath;
-                string sensationSoundPath = Path.Combine("sensation_sound", viewModel.SensationSoundFile.FileName);
-                string previewImagePath = Path.Combine("image_preview", viewModel.ImagePreviewFile.FileName);
+                string uploads = Path.Combine(rootpath, "upload");
+                Directory.CreateDirectory(uploads);
+                string sensationSoundPath = Path.Combine(uploads, viewModel.SensationSoundFile.FileName.Remove(0, viewModel.SensationSoundFile.FileName.LastIndexOf('\\') + 1));
+                string previewImagePath = Path.Combine(uploads, viewModel.ImagePreviewFile.FileName.Remove(0, viewModel.ImagePreviewFile.FileName.LastIndexOf('\\') + 1));
                 string animationPath = null;
 
                 if (viewModel.AnimationFile != null)
                 {
-                    animationPath = Path.Combine("animation", viewModel.AnimationFile.FileName);
+                    animationPath = Path.Combine(uploads, viewModel.AnimationFile.FileName.Remove(0, viewModel.AnimationFile.FileName.LastIndexOf('\\') + 1));
                 }
 
-                using (var saveSound = new FileStream(Path.Combine(rootpath, sensationSoundPath), FileMode.Create, FileAccess.Write))
+                using (var saveSound = new FileStream(sensationSoundPath, FileMode.Create, FileAccess.Write))
                 {
                     await viewModel.SensationSoundFile.CopyToAsync(saveSound);
                     Debug.WriteLine("Uploaded sound");
                 }
 
-                using (var savePreviewImage = new FileStream(Path.Combine(rootpath, previewImagePath), FileMode.Create, FileAccess.Write))
+                using (var savePreviewImage = new FileStream(previewImagePath, FileMode.Create, FileAccess.Write))
                 {
                     await viewModel.ImagePreviewFile.CopyToAsync(savePreviewImage);
                     Debug.WriteLine("Uploaded image");
@@ -78,12 +80,27 @@ namespace TechTileNimation.Controllers
 
                 if (animationPath != null)
                 {
-                    using (var saveAnimation = new FileStream(Path.Combine(rootpath, animationPath), FileMode.Create, FileAccess.Write))
+                    using (var saveAnimation = new FileStream(animationPath, FileMode.Create, FileAccess.Write))
                     {
                         await viewModel.ImagePreviewFile.CopyToAsync(saveAnimation);
                         Debug.WriteLine("Uploaded animation");
                     }
                 }
+
+                SensationEntry entry = new SensationEntry
+                {
+                    Name = viewModel.Name,
+                    SensationSoundLink = sensationSoundPath.Substring(sensationSoundPath.LastIndexOf('\\') - 6),
+                    PreviewImageLink = previewImagePath.Substring(sensationSoundPath.LastIndexOf('\\') - 6)
+                };
+
+                if (animationPath != null)
+                {
+                    entry.AnimationLink = animationPath.Substring(sensationSoundPath.LastIndexOf('\\') - 6);
+                }
+
+                await _context.SensationEntry.AddAsync(entry);
+                await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(HomeController.Index));
             }

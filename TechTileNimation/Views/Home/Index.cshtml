@@ -1,4 +1,6 @@
-﻿@{
+﻿@using TechTileNimation.ViewModels
+@model IEnumerable<ShowcaseEntryViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -191,6 +193,16 @@
                     <button type="button" id="bubble-img-button" class="button entry-button"><span>BUBBLE</span></button>
                 </div>
             </div>
+
+            @foreach (var entry in Model)
+            {
+                <div class="row">
+                    <div class="col-md-12 entry-div" style="position: relative;">
+                        <img src="@entry.Entry.PreviewImageLink" class="img-responsive">
+                        <button type="button" style="position: absolute" class="button entry-button"><span>@entry.Entry.Name</span></button>
+                    </div>
+                </div>
+            }
         </div>
     </body>
 </html>
