@@ -21,6 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\htmlAnimation\" />
+    <Folder Include="wwwroot\audios\" />
   </ItemGroup>
 
 </Project>
