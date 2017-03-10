@@ -31,7 +31,7 @@ namespace TechTileNimation
         {
             // Add framework services.
             services.AddMvc();
-            services.AddDbContext<AppDbContext>(option => option.UseSqlite("showcase.db"));
+            services.AddDbContext<AppDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TechTileNimation;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +39,9 @@ namespace TechTileNimation
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            var context = app.ApplicationServices.GetService<AppDbContext>();
+            context.Database.Migrate();
 
             if (env.IsDevelopment())
             {

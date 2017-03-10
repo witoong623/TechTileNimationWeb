@@ -22,24 +22,24 @@ namespace TechTileNimation.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            //var entries = await _context.SensationEntry.ToListAsync();
-            //var viewModel = new List<ShowcaseEntryViewModel>();
+            var entries = await _context.SensationEntry.ToListAsync();
+            var viewModel = new List<ShowcaseEntryViewModel>();
 
-            //foreach (var entry in entries)
-            //{
-            //    var div_css = $@"#{entry.Name}-img {{ background-image: url({entry.PreviewImageLink}); }}";
-            //    var button_css = $@"#{entry.Name}-image-button {{ position: absolute; }}";
+            foreach (var entry in entries)
+            {
+                var div_css = $@"#{entry.Name}-img {{ background-image: url({entry.PreviewImageLink}); }}";
+                var button_css = $@"#{entry.Name}-image-button {{ position: absolute; }}";
 
-            //    viewModel.Add(new ShowcaseEntryViewModel
-            //    {
-            //        Entry = entry,
-            //        DivCss = div_css,
-            //        ButtonCss = button_css
-            //    });
-            //}
+                viewModel.Add(new ShowcaseEntryViewModel
+                {
+                    Entry = entry,
+                    DivCss = div_css,
+                    ButtonCss = button_css
+                });
+            }
 
-            //return View(viewModel);
-            return View();
+            return View(viewModel);
+            //return View();
         }
 
         [HttpGet]
