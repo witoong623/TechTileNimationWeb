@@ -124,6 +124,7 @@
             width: 800px;
             height: 480px;
         }
+
         .size-preview-modal {
             width: 800px;
             height: 480px;
@@ -329,15 +330,15 @@
         <div class="row">
             <div class="col-md-12 entry-div" style="position: relative;">
                 <img src="@entry.PreviewImageLink" class="img-responsive">
-                <button type="button" style="position: absolute" class="button entry-button" data-toggle="modal" data-target="#@entry.Name.Replace(" ", "_")"><span>@entry.Name</span></button>
+                <button id="@String.Concat("start_", entry.SafeName)" type="button" style="position: absolute" class="button entry-button" data-toggle="modal" data-target="#@entry.SafeName"><span>@entry.Name</span></button>
             </div>
         </div>
         <!-- start modal -->
-        <div class="modal fade bs-example-modal-lg" id="@entry.Name.Replace(" ", "_")" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade bs-example-modal-lg" id="@entry.SafeName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close @String.Concat("stop_", entry.SafeName)" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">@entry.Name</h4>
                     </div>
                     <div class="modal-body">
@@ -345,7 +346,7 @@
                         <center>
                             @if (entry.AnimationLink != null)
                             {
-                                <video class="size-animation">
+                                <video id="@string.Concat("video_", entry.SafeName)" class="size-animation" muted preload="auto">
                                     <source src="@entry.AnimationLink" type="video/mp4" />
                                 </video>
                             }
@@ -354,12 +355,12 @@
                                 <img src="@entry.PreviewImageLink" class="size-preview-modal" />
                             }
                         </center>
-                        <audio id="#walk-audio">
-                            <source src="~/audios/bubble.mp3" type="audio/mp3" />
+                        <audio id="@String.Concat("audio_", entry.SafeName)" loop>
+                            <source src="@entry.SensationSoundLink" type="audio/mp3" />
                         </audio>
                     </div><!-- end modal body -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default @String.Concat("stop_", entry.SafeName)" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -367,3 +368,35 @@
         <!-- end modal -->
     }
 </div>
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+
+        @foreach (var entry in Model)
+        {
+            <text>
+            $('@String.Concat("#start_", entry.SafeName)').click(function () {
+                $('@String.Concat("#audio_", entry.SafeName)').trigger('play')
+                @if (entry.AnimationLink != null)
+                {
+                    <text>
+                $('@String.Concat("#video_", entry.SafeName)').get(0).play()
+                    </text>
+                }
+            })
+
+            $('@String.Concat(".stop_", entry.SafeName)').click(function () {
+                $('@String.Concat("#audio_", entry.SafeName)').trigger('pause')
+                @if (entry.AnimationLink != null)
+                {
+                    <text>
+                $('@String.Concat("#video_", entry.SafeName)').get(0).pause()
+                    </text>
+                }
+            })
+            </text>
+        }
+
+    })
+    </script>
+}
