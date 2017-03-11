@@ -65,7 +65,7 @@ namespace TechTileNimation.Controllers
                 {
                     using (var saveAnimation = new FileStream(animationPath, FileMode.Create, FileAccess.Write))
                     {
-                        await viewModel.ImagePreviewFile.CopyToAsync(saveAnimation);
+                        await viewModel.AnimationFile.CopyToAsync(saveAnimation);
                     }
                 }
 

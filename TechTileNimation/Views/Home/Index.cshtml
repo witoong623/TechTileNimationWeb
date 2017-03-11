@@ -346,9 +346,16 @@
                         <center>
                             @if (entry.AnimationLink != null)
                             {
-                                <video id="@string.Concat("video_", entry.SafeName)" class="size-animation" muted preload="auto">
-                                    <source src="@entry.AnimationLink" type="video/mp4" />
-                                </video>
+                                @if (entry.AnimationLink.Substring(entry.AnimationLink.IndexOf('.') + 1) != "ogg")
+                                {
+                                    <img src="@entry.AnimationLink" class="size-preview-modal" />
+                                }
+                                else
+                                {
+                                    <video id="@string.Concat("video_", entry.SafeName)" class="size-animation" muted preload="auto">
+                                        <source src="@entry.AnimationLink" type="video/mp4" />
+                                    </video>
+                                }
                             }
                             else
                             {
