@@ -23,7 +23,7 @@ namespace TechTileNimation.Models
             {
                 if (_safeName == null)
                 {
-                    _safeName = Name.Replace(" ", "_");
+                    _safeName = Name.Replace(" ", "_").Replace(".", "_");
                 }
 
                 return _safeName;
