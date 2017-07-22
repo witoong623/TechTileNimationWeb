@@ -31,7 +31,14 @@ namespace TechTileNimation
         {
             // Add framework services.
             services.AddMvc();
-            services.AddDbContext<AppDbContext>(options => options.UseMySql(@"Server=localhost;Database=techtilenimationweb;Uid=root;Pwd=123456;"));
+            var dbServer = Environment.GetEnvironmentVariable("DATABASE_SERVER");
+
+            if (string.IsNullOrEmpty(dbServer))
+            {
+                dbServer = "localhost";
+            }
+
+            services.AddDbContext<AppDbContext>(options => options.UseMySql($@"Server={dbServer};Database=techtilenimationweb;Uid=root;Pwd=123456;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
