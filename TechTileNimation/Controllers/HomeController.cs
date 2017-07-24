@@ -1,19 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TechTileNimation.ViewModels;
 using Microsoft.AspNetCore.Hosting;
-using System.IO;
-using TechTileNimation.Models;
 using Microsoft.EntityFrameworkCore;
+using TechTileNimation.Models;
+using TechTileNimation.ViewModels;
 
 namespace TechTileNimation.Controllers
 {
     public class HomeController : Controller
     {
-        public IHostingEnvironment _env;
-        public AppDbContext _context;
+        private IHostingEnvironment _env;
+        private AppDbContext _context;
 
         public HomeController(IHostingEnvironment env, AppDbContext context)
         {
@@ -87,7 +85,7 @@ namespace TechTileNimation.Controllers
                 return RedirectToAction(nameof(HomeController.Index));
             }
 
-            return RedirectToAction(nameof(HomeController.Upload));
+            return BadRequest();
         }
     }
 }
