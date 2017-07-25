@@ -1,0 +1,35 @@
+
+@{
+    ViewData["Title"] = "Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Management</h2>
+    <button id="deleteData" class="btn btn-danger" type="submit">Clear data</button>
+    <p>
+        <span id="deleteResult" class="label label-info"></span>
+    </p>
+    <a asp-controller="Home" asp-action="Index">Return to home.</a>
+</div>
+
+@section Scripts {
+<script>
+    $('#deleteData').click(function (e) {
+        let r = confirm('Want to delete all of data?');
+        if (r !== true) {
+            return;
+        }
+        $.ajax({
+            url: 'management/deletealldata',
+            method: 'DELETE',
+            success: function (data, status) {
+                $('#deleteResult').text('delete success.');
+            },
+            error: function (xhr, status) {
+                $('#deleteResult').text('error, data are not deleted.');
+            }
+        });
+    });
+</script>
+}
