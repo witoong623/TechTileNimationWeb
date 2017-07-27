@@ -9,15 +9,15 @@ namespace TechTileNimation.ViewModels
 {
     public class UploadViewModel
     {
-        [FileExtensions(Extensions = "ogv,webm")]
+        [IFormFileExtensions(Extensions = "ogv,webm,gif")]
         public IFormFile AnimationFile { get; set; }
 
         [Required]
-        [FileExtensions(Extensions = "png,gif,jpg,jpeg")]
+        [IFormFileExtensions(Extensions = "png,gif,jpg,jpeg")]
         public IFormFile ImagePreviewFile { get; set; }
 
         [Required]
-        [FileExtensions(Extensions = "mp3")]
+        [IFormFileExtensions(Extensions = "mp3")]
         public IFormFile SensationSoundFile { get; set; }
 
         [Required]
