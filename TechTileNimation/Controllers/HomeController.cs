@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -69,14 +70,28 @@ namespace TechTileNimation.Controllers
 
                 SensationEntry entry = new SensationEntry
                 {
-                    Name = viewModel.Name,
-                    SensationSoundLink = sensationSoundPath.Substring(sensationSoundPath.LastIndexOf('\\') - 6),
-                    PreviewImageLink = previewImagePath.Substring(sensationSoundPath.LastIndexOf('\\') - 6)
+                    Name = viewModel.Name
                 };
 
-                if (animationPath != null)
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
-                    entry.AnimationLink = animationPath.Substring(sensationSoundPath.LastIndexOf('\\') - 6);
+                    entry.SensationSoundLink = sensationSoundPath.Substring(sensationSoundPath.LastIndexOf('\\') - 6);
+                    entry.PreviewImageLink = previewImagePath.Substring(sensationSoundPath.LastIndexOf('\\') - 6);
+
+                    if (animationPath != null)
+                    {
+                        entry.AnimationLink = animationPath.Substring(sensationSoundPath.LastIndexOf('\\') - 6);
+                    }
+                }
+                else
+                {
+                    entry.SensationSoundLink = sensationSoundPath.Substring(sensationSoundPath.LastIndexOf('/') - 6);
+                    entry.PreviewImageLink = previewImagePath.Substring(sensationSoundPath.LastIndexOf('/') - 6);
+
+                    if (animationPath != null)
+                    {
+                        entry.AnimationLink = animationPath.Substring(sensationSoundPath.LastIndexOf('/') - 6);
+                    }
                 }
 
                 await _context.SensationEntry.AddAsync(entry);
@@ -85,7 +100,12 @@ namespace TechTileNimation.Controllers
                 return RedirectToAction(nameof(HomeController.Index));
             }
 
-            return BadRequest();
+            return BadRequest(ModelState);
+        }
+
+        public IActionResult Error()
+        {
+            return View();
         }
     }
 }
