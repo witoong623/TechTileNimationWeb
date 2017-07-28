@@ -219,7 +219,7 @@
                         <center>
                             @if (entry.AnimationLink != null)
                             {
-                                @if (entry.AnimationLink.Substring(entry.AnimationLink.IndexOf('.') + 1) != "ogg")
+                                @if (entry.AnimationLink.Substring(entry.AnimationLink.IndexOf('.') + 1) != "ogv" && entry.AnimationLink.Substring(entry.AnimationLink.IndexOf('.') + 1) != "webm")
                                 {
                                     <img src="@entry.AnimationLink" class="size-preview-modal" />
                                 }
