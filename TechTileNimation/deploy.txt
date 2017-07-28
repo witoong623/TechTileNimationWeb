@@ -7,4 +7,4 @@ Commands that I used to deployed to the demo website.
 docker run -d -v .\init\:/docker-entrypoint-initdb.d --network=isolated_nw --name=mariadb -e MYSQL_ROOT_PASSWORD=123456 -p 3307:3306 mariadb:10.2.7
 docker run -d --network=isolated_nw --name=mariadb -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 techtiledb
 docker run -d --name=techtileweb --network=isolated_nw -e DATABASE_SERVER=mariadb -p 8000:80 techtilenimation
-docker run -d --name=techtileweb --network=isolated_nw -e DATABASE_SERVER=mariadb -p 8000:80 asia.gcr.io/general-api-168205/techtilenimation
+docker run -d --name=techtileweb --network=isolated_nw -e DATABASE_SERVER=mariadb -p 8000:80 asia.gcr.io/<google cloud project id>/techtilenimation
